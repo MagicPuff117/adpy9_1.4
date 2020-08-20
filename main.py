@@ -1,32 +1,17 @@
-import datetime
+from contact import Contact
+from phonebook import Phonebook
 
+if __name__ == '__main__':
+    jhon = Contact('Jhon', 'Smith', '+71234567809', telegram='@jhony', email='jhony@smith.com')
+    thomas = Contact('Thomas', 'Anderson', '+3123398810902', favourite_contact=True, telegram='@Neo', email = 'neo@matrix.zeon')
 
+    contacts = Phonebook('Моя телефонная книга')
 
+    contacts.add_contact(jhon)
+    contacts.add_contact(thomas)
 
-
-
-def decorator(function_to_decorate):
-
-    def wrapper(*args, **kwargs):
-        print('Начало работы программы:', datetime.datetime.now())
-        start = datetime.datetime.now()
-        function_to_decorate(*args, **kwargs)
-        log_string = f'Дата и время запуска программы: {start}  \nНазвание программы: {function_to_decorate.__name__} \nАргументы: {args} {kwargs}'
-        with open('log.txt', 'w', encoding='UTF-8') as file:
-            file.write(log_string)
-        print(log_string)
-    return wrapper
-
-
-@decorator
-def say(name, surname, age):
-    print('Привет', name, surname, age)
-
-
-
-
-say(input("Введите имя:"),input('Введите фамилию:'), input('Введите возраст:'))
-
-
-
-
+    contacts.view()
+    contacts.search_favourite()
+    contacts.main_search('Thomas', 'Anderson')
+    contacts.delete_contact("+71234567809")
+    contacts.view()
