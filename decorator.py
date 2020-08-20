@@ -2,9 +2,6 @@ import datetime
 
 
 
-
-
-
 def decorator(function_to_decorate):
 
     def wrapper(*args, **kwargs):
@@ -17,15 +14,15 @@ def decorator(function_to_decorate):
         print(log_string)
     return wrapper
 
-
-@decorator
-def say(name, surname, age):
-    print('Привет', name, surname, age)
-
-
-
-
-say(input("Введите имя:"),input('Введите фамилию:'), input('Введите возраст:'))
+#
+# @decorator
+# def say(name, surname, age):
+#     print('Привет', name, surname, age)
+#
+#
+#
+#
+# say(input("Введите имя:"),input('Введите фамилию:'), input('Введите возраст:'))
 
 
 
