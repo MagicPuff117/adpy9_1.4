@@ -1,15 +1,17 @@
 
 from decorator import decorator
+from decorator import parametrized_decorator
 
 
 class Phonebook:
+
     def __init__(self, name):
         self.name = name
         self.contacts = []
 
-    def add_contact(self,contact):
+    def add_contact(self, contact):
         self.contacts.append(contact)
-
+    @decorator
     def view(self):
         for index, contact in enumerate(self.contacts):
             print(f'{index+1}. {contact.main_info}')
@@ -25,7 +27,8 @@ class Phonebook:
         for contact in self.contacts:
             if contact.favourite_contact:
                 print(f'{contact.main_info}')
-    @decorator
+
+    @parametrized_decorator(parametr=input('Введите путь к логу:'))
     def main_search(self, name, surname):
         for contact in self.contacts:
             if contact.name == name and contact.surname == surname:

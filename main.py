@@ -10,7 +10,7 @@ if __name__ == '__main__':
     contacts.add_contact(jhon)
     contacts.add_contact(thomas)
 
-    # contacts.view()
+    contacts.view()
     # contacts.search_favourite()
     contacts.main_search('Thomas', 'Anderson')
     # contacts.delete_contact("+71234567809")
